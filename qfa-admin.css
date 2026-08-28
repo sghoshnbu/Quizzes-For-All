@@ -1,0 +1,421 @@
+/* ==========================================================================
+   Quizzis For All — admin styles (v1.4)
+   ========================================================================== */
+
+.qmc-admin {
+	--qmc-a: #2271b1;
+	--qmc-a-soft: #eaf3fa;
+	--qmc-ink: #1e2327;
+	--qmc-ink-soft: #646970;
+	--qmc-line: #dcdfe3;
+	--qmc-ok: #1a9b4b;
+	--qmc-bad: #d63638;
+	--qmc-warn: #dba617;
+	--qmc-card-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 4px 14px rgba(16, 24, 40, 0.06);
+}
+
+/* ---------- hero ---------- */
+
+.qmc-hero {
+	background: linear-gradient(120deg, #2271b1 0%, #1c5f96 45%, #14496f 100%);
+	color: #fff;
+	border-radius: 14px;
+	padding: 28px 32px;
+	margin: 16px 0 22px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+	flex-wrap: wrap;
+	box-shadow: 0 6px 24px rgba(34, 113, 177, 0.25);
+	position: relative;
+	overflow: hidden;
+}
+
+.qmc-hero::after {
+	content: "";
+	position: absolute;
+	right: -60px;
+	top: -60px;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.07);
+	pointer-events: none;
+}
+
+.qmc-hero h1 {
+	margin: 0 0 6px;
+	color: #fff;
+	font-size: 27px;
+	font-weight: 700;
+	padding: 0;
+}
+
+.qmc-hero p {
+	margin: 0;
+	opacity: 0.9;
+	font-size: 14.5px;
+	max-width: 640px;
+}
+
+.qmc-hero-actions {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	position: relative;
+	z-index: 1;
+}
+
+.qmc-hero .button,
+.qmc-hero .button-primary {
+	background: rgba(255, 255, 255, 0.14) !important;
+	border: 1px solid rgba(255, 255, 255, 0.45) !important;
+	color: #fff !important;
+	border-radius: 999px;
+	padding: 6px 20px;
+	height: auto;
+	line-height: 1.9;
+	text-shadow: none;
+	box-shadow: none !important;
+	transition: background 0.15s ease;
+}
+
+.qmc-hero .button:hover {
+	background: rgba(255, 255, 255, 0.28) !important;
+}
+
+.qmc-hero .button-primary {
+	background: #fff !important;
+	color: #14496f !important;
+	font-weight: 600;
+}
+
+.qmc-hero .button-primary:hover {
+	background: #eaf3fa !important;
+}
+
+/* ---------- stat grid ---------- */
+
+.qmc-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.qmc-stat {
+	background: #fff;
+	border: 1px solid var(--qmc-line);
+	border-radius: 12px;
+	padding: 20px 22px;
+	box-shadow: var(--qmc-card-shadow);
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.qmc-stat:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(16, 24, 40, 0.08), 0 12px 24px rgba(16, 24, 40, 0.10);
+}
+
+.qmc-stat::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: var(--qmc-a);
+}
+
+.qmc-stat.is-ok::before { background: var(--qmc-ok); }
+.qmc-stat.is-warn::before { background: var(--qmc-warn); }
+.qmc-stat.is-bad::before { background: var(--qmc-bad); }
+
+.qmc-stat-value {
+	font-size: 34px;
+	font-weight: 700;
+	line-height: 1.1;
+	color: var(--qmc-ink);
+	font-variant-numeric: tabular-nums;
+}
+
+.qmc-stat-label {
+	color: var(--qmc-ink-soft);
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin-top: 4px;
+}
+
+.qmc-stat-sub {
+	margin-top: 10px;
+	font-size: 13px;
+	color: var(--qmc-ink-soft);
+}
+
+.qmc-stat-icon {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	font-size: 26px;
+	opacity: 0.16;
+}
+
+/* ---------- panels ---------- */
+
+.qmc-panels {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 18px;
+}
+
+.qmc-panel {
+	background: #fff;
+	border: 1px solid var(--qmc-line);
+	border-radius: 12px;
+	box-shadow: var(--qmc-card-shadow);
+	overflow: hidden;
+}
+
+.qmc-panel h2 {
+	margin: 0;
+	padding: 14px 20px;
+	font-size: 15px;
+	border-bottom: 1px solid var(--qmc-line);
+	background: #f7f8fa;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.qmc-panel-body {
+	padding: 16px 20px;
+}
+
+.qmc-panel table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.qmc-panel table th,
+.qmc-panel table td {
+	text-align: left;
+	padding: 9px 20px;
+	border-bottom: 1px solid #f0f1f3;
+	font-size: 13.5px;
+}
+
+.qmc-panel table th {
+	color: var(--qmc-ink-soft);
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-weight: 600;
+}
+
+.qmc-panel table tr:last-child td {
+	border-bottom: none;
+}
+
+.qmc-empty {
+	color: var(--qmc-ink-soft);
+	font-style: italic;
+	padding: 6px 0;
+}
+
+/* ---------- pills / badges ---------- */
+
+.qmc-pill {
+	display: inline-block;
+	border-radius: 999px;
+	padding: 2px 11px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.7;
+}
+
+.qmc-pill-ok   { background: #e5f5eb; color: #15743a; }
+.qmc-pill-bad  { background: #fbeaea; color: #a82224; }
+.qmc-pill-warn { background: #fdf5e3; color: #8a6a10; }
+.qmc-pill-info { background: var(--qmc-a-soft); color: #14496f; }
+
+/* ---------- quick links row ---------- */
+
+.qmc-quicklinks {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-top: 4px;
+}
+
+.qmc-quicklink {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: #fff;
+	border: 1px solid var(--qmc-line);
+	border-radius: 10px;
+	padding: 12px 16px;
+	text-decoration: none;
+	color: var(--qmc-ink);
+	font-weight: 500;
+	box-shadow: var(--qmc-card-shadow);
+	transition: border-color 0.15s ease, transform 0.12s ease;
+}
+
+.qmc-quicklink:hover {
+	border-color: var(--qmc-a);
+	color: var(--qmc-a);
+	transform: translateY(-1px);
+}
+
+.qmc-quicklink .dashicons {
+	color: var(--qmc-a);
+}
+
+/* ---------- manual grading ---------- */
+
+.qmc-grade-attempt {
+	background: #fff;
+	border: 1px solid var(--qmc-line);
+	border-radius: 12px;
+	box-shadow: var(--qmc-card-shadow);
+	margin-bottom: 18px;
+	overflow: hidden;
+}
+
+.qmc-grade-head {
+	padding: 14px 20px;
+	background: #f7f8fa;
+	border-bottom: 1px solid var(--qmc-line);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.qmc-grade-head strong { font-size: 15px; }
+
+.qmc-grade-q {
+	padding: 18px 20px;
+	border-bottom: 1px solid #f0f1f3;
+}
+
+.qmc-grade-q:last-of-type { border-bottom: none; }
+
+.qmc-grade-q-title {
+	font-weight: 600;
+	margin: 0 0 10px;
+}
+
+.qmc-answer-box {
+	background: #f7f8fa;
+	border: 1px solid var(--qmc-line);
+	border-left: 3px solid var(--qmc-a);
+	border-radius: 8px;
+	padding: 12px 16px;
+	margin-bottom: 12px;
+	white-space: pre-wrap;
+	font-size: 14px;
+	max-height: 320px;
+	overflow-y: auto;
+}
+
+.qmc-answer-box.is-empty {
+	color: var(--qmc-ink-soft);
+	font-style: italic;
+	border-left-color: var(--qmc-line);
+}
+
+.qmc-grade-controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.qmc-grade-controls label {
+	font-weight: 600;
+	font-size: 13px;
+}
+
+.qmc-grade-controls input[type="number"] {
+	width: 90px;
+}
+
+.qmc-grade-controls textarea {
+	width: 100%;
+	max-width: 620px;
+	margin-top: 8px;
+}
+
+.qmc-grade-foot {
+	padding: 14px 20px;
+	background: #f7f8fa;
+	border-top: 1px solid var(--qmc-line);
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+
+.qmc-file-answer a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 600;
+}
+
+.qmc-review-row th {
+	width: 190px;
+	color: var(--qmc-ink-soft);
+}
+
+/* ---------- import/export format cards ---------- */
+
+.qmc-format-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 16px;
+	margin: 16px 0 24px;
+}
+
+.qmc-format-card {
+	background: #fff;
+	border: 1px solid var(--qmc-line);
+	border-radius: 12px;
+	padding: 18px 20px;
+	box-shadow: var(--qmc-card-shadow);
+}
+
+.qmc-format-card h3 {
+	margin: 0 0 6px;
+	font-size: 15px;
+}
+
+.qmc-format-card p {
+	color: var(--qmc-ink-soft);
+	font-size: 13px;
+	margin: 0 0 10px;
+}
+
+.qmc-format-card code {
+	display: block;
+	background: #f7f8fa;
+	border: 1px solid var(--qmc-line);
+	border-radius: 6px;
+	padding: 10px 12px;
+	font-size: 12px;
+	white-space: pre-wrap;
+	margin-top: 8px;
+}
+
+@media (max-width: 782px) {
+	.qmc-hero { padding: 20px; }
+	.qmc-hero h1 { font-size: 22px; }
+	.qmc-stat-value { font-size: 28px; }
+}
